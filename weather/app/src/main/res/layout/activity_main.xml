@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/r1"
+    android:baselineAligned="false"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="379dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="19dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <EditText
+                android:id="@+id/GetCity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:fontFamily="@font/open_sans"
+                android:inputType="textPersonName"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/search"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="#FFFFFF"
+                android:text="поиск"
+                android:textColor="#000000"
+                android:textColorHighlight="#000000"
+                android:textColorHint="#000000"
+                android:textColorLink="#000000"
+                android:textSize="10sp"
+                app:iconTint="#FFFFFF"
+                app:rippleColor="#000000" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/temperature"
+            android:layout_width="match_parent"
+            android:layout_height="86dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/poppins_bold"
+            android:gravity="bottom|center_horizontal"
+            android:includeFontPadding="false"
+            android:textColor="#FFFFFF"
+            android:textSize="87dp" />
+
+        <ImageView
+            android:id="@+id/weatherIcon"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_weight="1"
+            android:contentDescription="WeatherIcon" />
+
+        <TextView
+            android:id="@+id/weatherDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-thin"
+            android:gravity="center_horizontal|top"
+            android:includeFontPadding="false"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:typeface="normal" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/realwhite"
+            android:orientation="vertical"
+            android:paddingTop="40dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="49dp"
+                android:orientation="horizontal"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp">
+
+                <TextView
+                    android:id="@+id/humidityPercent"
+                    android:layout_width="25dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+
+                    android:layout_weight="1"
+                    android:background="@drawable/r3"
+                    android:fontFamily="sans-serif-medium"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:padding="10dp"
+                    android:textAlignment="center"
+                    android:textColor="#0B99B9"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/WindWay"
+                    android:layout_width="25dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/r3"
+                    android:fontFamily="sans-serif-medium"
+                    android:padding="10dp"
+                    android:textAlignment="center"
+                    android:textColor="#0B99B9"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp">
+
+                <TextView
+                    android:id="@+id/FeeksLike"
+                    android:layout_width="25dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="5dp"
+
+                    android:layout_weight="1"
+                    android:background="@drawable/r3"
+                    android:fontFamily="sans-serif-medium"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:padding="10dp"
+                    android:textAlignment="center"
+                    android:textColor="#70DA90"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/pressureMm"
+                    android:layout_width="25dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/r3"
+                    android:fontFamily="sans-serif-medium"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:padding="10dp"
+                    android:textAlignment="center"
+                    android:textColor="#70DA90"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="5dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="top"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="137dp"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/id_forecastDay1"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:fontFamily="@font/open_sans"
+                                android:gravity="center"
+                                android:maxLength="10"
+                                android:textAlignment="center"
+                                android:textColor="#000000"
+                                android:textSize="20sp" />
+
+                            <ImageView
+                                android:id="@+id/id_forecastIcon1"
+                                android:layout_width="135dp"
+                                android:layout_height="130dp"
+                                android:layout_gravity="center_horizontal|center_vertical"
+                                android:padding="15dp" />
+
+                            <TextView
+                                android:id="@+id/id_forecastDesc1"
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:fontFamily="@font/open_sans"
+                                android:gravity="center"
+                                android:textAlignment="center"
+                                android:textColor="#000000"
+                                android:textSize="16sp" />
+
+                            <TextView
+                                android:id="@+id/id_forecastTemp1"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:fontFamily="@font/open_sans"
+                                android:gravity="center"
+                                android:textAlignment="center"
+                                android:textColor="#000000"
+                                android:textSize="16sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="137dp"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/id_forecastDay2"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:fontFamily="@font/open_sans"
+                                android:gravity="center"
+                                android:maxLength="10"
+                                android:textAlignment="center"
+                                android:textColor="#000000"
+                                android:textSize="20sp" />
+
+                            <ImageView
+                                android:id="@+id/id_forecastIcon2"
+                                android:layout_width="135dp"
+                                android:layout_height="130dp"
+                                android:padding="15dp" />
+
+                            <TextView
+                                android:id="@+id/id_forecastDesc2"
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:fontFamily="@font/open_sans"
+                                android:gravity="center"
+                                android:textAlignment="center"
+                                android:textColor="#000000"
+                                android:textSize="16sp" />
+
+                            <TextView
+                                android:id="@+id/id_forecastTemp2"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:fontFamily="@font/open_sans"
+                                android:gravity="center"
+                                android:textAlignment="center"
+                                android:textColor="#000000"
+                                android:textSize="16sp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="137dp"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/id_forecastDay3"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:fontFamily="@font/open_sans"
+                                android:gravity="center"
+                                android:maxLength="10"
+                                android:textAlignment="center"
+                                android:textAllCaps="false"
+                                android:textColor="#000000"
+                                android:textSize="20sp" />
+
+                            <ImageView
+                                android:id="@+id/id_forecastIcon3"
+                                android:layout_width="135dp"
+                                android:layout_height="130dp"
+                                android:padding="15dp" />
+
+                            <TextView
+                                android:id="@+id/id_forecastDesc3"
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:fontFamily="@font/open_sans"
+                                android:gravity="center"
+                                android:textAlignment="center"
+                                android:textColor="#000000"
+                                android:textSize="16sp" />
+
+                            <TextView
+                                android:id="@+id/id_forecastTemp3"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:fontFamily="@font/open_sans"
+                                android:gravity="center"
+                                android:textAlignment="center"
+                                android:textColor="#000000"
+                                android:textSize="16sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="137dp"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/id_forecastDay4"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:fontFamily="@font/open_sans"
+                                android:gravity="center"
+                                android:maxLength="10"
+                                android:textAlignment="center"
+                                android:textColor="#000000"
+                                android:textSize="20sp" />
+
+                            <ImageView
+                                android:id="@+id/id_forecastIcon4"
+                                android:layout_width="135dp"
+                                android:layout_height="130dp"
+                                android:padding="15dp" />
+
+                            <TextView
+                                android:id="@+id/id_forecastDesc4"
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:fontFamily="@font/open_sans"
+                                android:gravity="center"
+                                android:textAlignment="center"
+                                android:textColor="#000000"
+                                android:textSize="16sp" />
+
+                            <TextView
+                                android:id="@+id/id_forecastTemp4"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:fontFamily="@font/open_sans"
+                                android:gravity="center"
+                                android:textAlignment="center"
+                                android:textColor="#000000"
+                                android:textSize="16sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="137dp"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/id_forecastDay5"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:fontFamily="@font/open_sans"
+                                android:gravity="center"
+                                android:maxLength="10"
+                                android:textAlignment="center"
+                                android:textColor="#000000"
+                                android:textSize="20sp" />
+
+                            <ImageView
+                                android:id="@+id/id_forecastIcon5"
+                                android:layout_width="135dp"
+                                android:layout_height="130dp"
+                                android:padding="15dp" />
+
+                            <TextView
+                                android:id="@+id/id_forecastDesc5"
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:fontFamily="@font/open_sans"
+                                android:gravity="center"
+                                android:textAlignment="center"
+                                android:textColor="#000000"
+                                android:textSize="16sp" />
+
+
+                            <TextView
+                                android:id="@+id/id_forecastTemp5"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:fontFamily="@font/open_sans"
+                                android:gravity="center"
+                                android:textAlignment="center"
+                                android:textColor="#000000"
+                                android:textSize="16sp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Сделал Максим Михалевич...мдэээ" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
