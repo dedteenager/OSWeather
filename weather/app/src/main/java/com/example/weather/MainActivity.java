@@ -34,11 +34,10 @@ public class MainActivity extends AppCompatActivity {
     private TextView humidityPercent;
     private TextView WindWay;
     private TextView weatherDescription;
-    //private TextView City;
     private ImageView weatherIcon;
 
     private EditText GetCity;
-
+    private Button search;
     private TextView id_forecastDay1;
     private TextView id_forecastDay2;
     private TextView id_forecastDay3;
@@ -62,8 +61,6 @@ public class MainActivity extends AppCompatActivity {
     private TextView id_forecastDesc3;
     private TextView id_forecastDesc4;
     private TextView id_forecastDesc5;
-
-    private Button search;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -154,18 +151,13 @@ public class MainActivity extends AppCompatActivity {
                 url = new URL(strings[0]);
                 connection = (HttpURLConnection) url.openConnection();
                 connection.connect();
-
                 InputStream stream = connection.getInputStream();
                 reader = new BufferedReader(new InputStreamReader(stream));
-
                 StringBuffer buffer = new StringBuffer();
                 String line = "";
-
                 while ((line = reader.readLine()) != null) {
                     buffer.append(line).append("\n");
-                    return buffer.toString();
-
-                }
+                    return buffer.toString();}
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             } catch (IOException e) {
@@ -173,15 +165,12 @@ public class MainActivity extends AppCompatActivity {
             } finally {
                 if (connection != null)
                     connection.disconnect();
-
                 if (reader != null) {
                     try {
                         reader.close();
                     } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+                        e.printStackTrace();}
                 }
-
             }
             return null;
         }
@@ -190,12 +179,11 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
-
             Toast toast2 = Toast.makeText(getApplicationContext(),
-                    "Неверно введён город!", Toast.LENGTH_SHORT);
+                    "Ошибка получения данных", Toast.LENGTH_SHORT);
+            Toast toast3 = Toast.makeText(getApplicationContext(),
+                    "Ошибка подключения к серверу", Toast.LENGTH_SHORT);
             try {
-
-
                 JSONObject jsonObjec = new JSONObject(result);
 
                 temperature.setText(jsonObjec.getJSONObject("main").getInt("temp") + "C°");
@@ -228,14 +216,10 @@ public class MainActivity extends AppCompatActivity {
                 if (jsonObjec.getJSONObject("wind").getInt("deg") < 265 & jsonObjec.getJSONObject("wind").getInt("deg") < 275) {
                     WindWay.setText("Ветер: " + jsonObjec.getJSONObject("wind").getInt("speed") + "м/с " + " З");
                 }
-
                 JSONArray jsonArray = jsonObjec.getJSONArray("weather");
                 JSONObject pogoda = jsonArray.getJSONObject(0);
                 String pog = pogoda.getString("description");
                 weatherDescription.setText(pog);
-
-                //String cityname = jsonObjec.getString("name");
-                //City.setText(cityname);
 
                 JSONArray jsonIcoArray = jsonObjec.getJSONArray("weather");
                 JSONObject icon = jsonIcoArray.getJSONObject(0);
@@ -244,13 +228,13 @@ public class MainActivity extends AppCompatActivity {
 
                 String ClearSkyUrl = "http://f0746619.xsph.ru/" + WiD + ".png";
                 Picasso.get().load(ClearSkyUrl).into(weatherIcon);
-
             } catch (JSONException e) {
                 e.printStackTrace();
+                toast3.show();
             }
+
             catch (NullPointerException ex){
                 toast2.show();
-
             }
         }
     }
@@ -264,18 +248,13 @@ public class MainActivity extends AppCompatActivity {
                 urlforecast = new URL(strings[0]);
                 connection = (HttpURLConnection) urlforecast.openConnection();
                 connection.connect();
-
                 InputStream stream = connection.getInputStream();
                 reader = new BufferedReader(new InputStreamReader(stream));
-
                 StringBuffer buffer = new StringBuffer();
                 String line = "";
-
                 while ((line = reader.readLine()) != null) {
                     buffer.append(line).append("\n");
-                    return buffer.toString();
-
-                }
+                    return buffer.toString();}
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             } catch (IOException e) {
@@ -283,15 +262,12 @@ public class MainActivity extends AppCompatActivity {
             } finally {
                 if (connection != null)
                     connection.disconnect();
-
                 if (reader != null) {
                     try {
                         reader.close();
                     } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+                        e.printStackTrace();}
                 }
-
             }
             return null;
         }
@@ -352,4 +328,3 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 }
-
