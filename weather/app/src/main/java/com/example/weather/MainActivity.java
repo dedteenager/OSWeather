@@ -122,8 +122,8 @@ public class MainActivity extends AppCompatActivity {
                     editor.remove("City");
                     editor.putString("City",CityForApiReq);
                     editor.apply();
-                    String urlforecast="https://api.openweathermap.org/data/2.5/forecast?q="+CityForApiReq+"&appid=3fdd34a76aeb9f0de16c5fd99d08eef5&units=metric&lang=ru";
-                    String url = "https://api.openweathermap.org/data/2.5/weather?q="+CityForApiReq+"&APPID=3fdd34a76aeb9f0de16c5fd99d08eef5&units=metric&lang=ru";
+                    String urlforecast="https://api.openweathermap.org/data/2.5/forecast?q="+CityForApiReq+"&appid=0a4ee1171f5f0bdfbc88e09d53c3d6f4&units=metric&lang=ru";
+                    String url = "https://api.openweathermap.org/data/2.5/weather?q="+CityForApiReq+"&APPID=0a4ee1171f5f0bdfbc88e09d53c3d6f4&units=metric&lang=ru";
                     new GetURLData().execute(url);
                     new GetURLDataForecast().execute(urlforecast);
 
